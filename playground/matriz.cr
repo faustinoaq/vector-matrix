@@ -1,3 +1,5 @@
+# Copy of src/matrix.cr to do benchmarking
+# This version doesn't print to output
 record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : String do
   def +(otra : Matriz)
     sumar(otra, '+') { |k| vector[k] + otra.vector[k] }

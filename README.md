@@ -7,6 +7,7 @@ Simulate matrix operations using vectors.
 Run playgound and go to Workbook section.
 
 ```
+$ shards install
 $ crystal play
 Listening on http://localhost:8080
 ```
