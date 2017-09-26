@@ -1,0 +1,8 @@
+- espacio contiuo particionamiento fijo 
+  + igual tamaño
+  + diferente tamaño
+- particiones dinamicas
+- no contiguas (paginacion)
+- Traduccion con paginación
+- Segmentación.
+- Segmentación paginada

@@ -1,0 +1,17 @@
+name: matriz
+version: 0.1.0
+
+authors:
+  - Faustino Aguilar <faustinoaq@gmail.com>
+
+targets:
+  matriz:
+    main: src/matriz.cr
+
+dependencies:
+  linalg:
+    github: konovod/linalg
+
+crystal: 0.23.1
+
+license: MIT
