@@ -1,4 +1,4 @@
-record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : String do
+record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : String, log : Bool = true do
   def mostrar
     print '\n'
     print @nombre + " =" unless @nombre.empty?
@@ -35,9 +35,11 @@ record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : 
   end
 
   private def sumar(otra : Matriz, operador)
-    mostrar
-    print "\n\t#{operador}\n"
-    otra.mostrar
+    if @log
+      mostrar
+      print "\n\t#{operador}\n"
+      otra.mostrar
+    end
     v = [] of Int32
     if mismo_tamaño? otra
       k = 0
@@ -49,7 +51,7 @@ record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : 
       raise "ERROR: matrices deben tener mismo tamaño"
     end
     Matriz.new(v, columnas, filas, @nombre + otra.@nombre).tap do |matriz|
-      matriz.mostrar
+      matriz.mostrar if @log
     end
   end
 
@@ -62,9 +64,11 @@ record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : 
   end
 
   private def multiplicar(otra : Matriz)
-    mostrar
-    print "\n\t*\n"
-    otra.mostrar
+    if @log
+      mostrar
+      print "\n\t*\n"
+      otra.mostrar
+    end
     otro = Channel(Int32).new
     spawn do
       i = 0
@@ -103,7 +107,7 @@ record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : 
       j += 1
     end
     Matriz.new(r, otra.columnas, filas, @nombre + otra.@nombre).tap do |matriz|
-      matriz.mostrar
+      matriz.mostrar if @log
     end
   end
 
