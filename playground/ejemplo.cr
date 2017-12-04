@@ -1,4 +1,4 @@
-require "./matriz"
+require "../src/matriz"
 
 M1 = Matriz[
   1, 2, 3, 5,
