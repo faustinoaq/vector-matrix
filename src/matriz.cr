@@ -1,4 +1,4 @@
-record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : String, log : Bool = true do
+record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : String, log : Bool = false do
   def mostrar
     print '\n'
     print @nombre + " =" unless @nombre.empty?
@@ -111,10 +111,10 @@ record Matriz, vector : Array(Int32), columnas : Int32, filas : Int32, nombre : 
     end
   end
 
-  def self.[](*args, columnas, nombre = "")
+  def self.[](*args, columnas, nombre = "", log = false)
     vector = args.to_a
     filas = vector.size / columnas
-    Matriz.new(vector, columnas, filas, nombre).tap do |matriz|
+    Matriz.new(vector, columnas, filas, nombre, log).tap do |matriz|
       raise "Matriz inválida" unless matriz.valida?
     end
   end
